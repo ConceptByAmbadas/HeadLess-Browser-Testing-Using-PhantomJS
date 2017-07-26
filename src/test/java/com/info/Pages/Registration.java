@@ -24,9 +24,12 @@ public class Registration extends Utility{
 		
 	}
 	
-	//By First=By.xpath("//input[@name='first_name']");
 	
 	
+	@FindBy(xpath="//html/body/main/div/div[2]/div/div/div[1]/div/p[2]/a")
+	public WebElement clickdownload;
+	@FindBy(xpath="//html/body/main/div/div[1]/div[1]/div/div/a")
+	public WebElement clickbtn;
 	@FindBy(xpath="//select[@name='title']")
 	public WebElement select_title;
 	@FindBy(xpath=".//input[@name='first_name']")
@@ -57,9 +60,22 @@ public class Registration extends Utility{
 	public WebElement btn_submit;
 	
 	public boolean to_Fil_Customer_Registration_Details(String title,String fname,String lname,String email,String mobile,String area_address,String cityname,String State,String pincode,String uname,String upassword)
+	//public boolean to_Fil_Customer_Registration_Details()
 	{
+		/*test.log(LogStatus.INFO, "User has login to Eclipse .org site :");
+		clickdownload.click();
+		test.log(LogStatus.INFO, "User has clicking on Eclipse download");
+		System.out.println("User Has click on"+clickdownload);
+		clickbtn.click();
+		test.log(LogStatus.INFO, "Download is getting started");*/
+	
 		
-		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Select s1=new Select(select_title);
 		s1.selectByIndex(2);
 		test.log(LogStatus.INFO, "User hasSelect Title");
@@ -110,6 +126,7 @@ public class Registration extends Utility{
 			//test.log(LogStatus.FAIL, "Submit button is not enable on page");
 			return false;
 		}
+		
 		
 	}
 	

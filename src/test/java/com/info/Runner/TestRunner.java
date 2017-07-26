@@ -31,8 +31,9 @@ public class TestRunner extends Utility
 	try
 	{
 	WebDriver driver=startBrowser("phantom", "file:///E:/StudyWorkpace/ExtentReport_Demo/HTML_Pages/Registration.html");
+	//WebDriver driver=startBrowser("phantom", "https://www.eclipse.org/downloads/?");
 	registration=PageFactory.initElements(driver, Registration.class);
-	payment=PageFactory.initElements(driver, Payment.class);
+	//payment=PageFactory.initElements(driver, Payment.class);
 	String webtitle=driver.getTitle();
 	System.out.println("Title is"+webtitle);
 	takeScreenshot(driver);
@@ -45,36 +46,26 @@ public class TestRunner extends Utility
 	
 	
 	@Test(priority=1)
-	public void customer_Registraion()
+	public void Customer_Registration()
 	{
 		try
 		{
-		//test=report.startTest("Customer Registration");
-		//test.log(LogStatus.INFO, "Test Started"+test.getStartedTime());
+		test=report.startTest("Download Eclipse");
+		test.log(LogStatus.INFO, "Test Started"+test.getStartedTime());
 		
-		registration.to_Fil_Customer_Registration_Details("MR","Sachin", "Pawar", "Sachin@gmail.com", "9898787656", "Aundh,Pune", "Pune", "Maharastra", "414502", "Sachin", "12345");
-		payment.to_Fill_Payment_Details( "Schin", "32343456", "32456576", "50000", "schin", "12345");	
+		
+		registration.to_Fil_Customer_Registration_Details("MR","Sachin", "Pawar", "Sachin@gmail.com", "9898787656", "Aundh,Pune", "Pune", "Maharastra", "414502", "Sachin", "");
+		//registration.to_Fil_Customer_Registration_Details();
+			
 		}
 		catch(Exception ex)
 		{
 			System.out.println("Msg"+ex.getMessage());
 		}
 	}
-	@Test(priority=2)
-	public void customer_Payment()
-	{
-		try
-		{
-		//test=report.startTest("Customer Payment");
-		//test.log(LogStatus.INFO, "Test Started"+test.getStartedTime());
-		//payment.to_Fill_Payment_Details( "Schin", "32343456", "32456576", "50000", "schin", "12345");
-		}
-		catch(Exception ex)
-		{
-			System.out.println("Exception is"+ex.getMessage());
-		}
+	
 		
-	}
+	//}
 
 	
 }
